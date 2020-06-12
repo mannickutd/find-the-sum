@@ -1,5 +1,8 @@
 import pytest
-from find_the_sum.find_the_sum import find_the_sum_attempt_1
+from find_the_sum.find_the_sum import (
+    find_the_sum_attempt_1,
+    find_the_sum_attempt_2,
+)
 
 
 INPUT_FIXTURES = [
@@ -9,6 +12,8 @@ INPUT_FIXTURES = [
     ([0, 0, 0], True),
     ([4, 5, 15, 2, 8], False),
     ([8, 7, 5, 3], True),
+    ([-3, -3, -6], True),
+    ([-3, -2, -1, 1, 2, 3], True),
 ]
 
 
@@ -18,3 +23,11 @@ INPUT_FIXTURES = [
 )
 def test_find_the_sum_attempt_1(input_list, has_sum):
     assert find_the_sum_attempt_1(input_list) == has_sum
+
+
+@pytest.mark.parametrize(
+    "input_list, has_sum",
+    INPUT_FIXTURES,
+)
+def test_find_the_sum_attempt_2(input_list, has_sum):
+    assert find_the_sum_attempt_2(input_list) == has_sum
